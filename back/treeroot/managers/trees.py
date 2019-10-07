@@ -1,7 +1,8 @@
 from treeroot.models.tree import Tree
 import requests
 import csv
-import pandas as pd
+
+
 
 
 def load_data():
@@ -58,3 +59,10 @@ def get_locations():
     for element in query:
         locations.append(element.localisation)
     return locations
+
+def get_height():
+    query = Tree.select(Tree.height).distinct().where(Tree.height < 100).execute()
+    height = []
+    for element in query:
+        height.append(element.height)
+    return height
