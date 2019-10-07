@@ -1,39 +1,36 @@
 <template>
-    <v-app>
-        <v-app-bar 
-            app
-            src="./assets/arbre.jpg" 
-            aspect-ratio="1.7"
-            >
-            <v-toolbar-title class="mx-5 my-auto">
-                <v-layout class="mx-5">
 
-                <v-flex xs10 >
-                    <v-select
-                            solo
-                            label="Search by location"
-                            :items="items"                
-                            prepend-inner-icon="mdi-magnify"
-                            v-model="search">
-                        >                                  
-                    </v-select>
-                </v-flex>
-                <v-flex xs2 class="ml-2 mt-1">
-                    <v-btn block large @click="searchTree">Search</v-btn>
-                </v-flex>
-            </v-layout> 
-            </v-toolbar-title>
-        </v-app-bar>
-        <v-content>
-            <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
-        </v-content>
-    </v-app>
+    <v-sparkline
+    :value="value"
+    :gradient="gradients"
+    :smooth="radius || false"
+    :padding="padding"
+    :line-width="width"
+    :stroke-linecap="lineCap"
+    :gradient-direction="gradientDirection"
+    :fill="fill"
+    :type="type"
+    :auto-line-width="autoLineWidth"
+    auto-draw
+  ></v-sparkline>
 </template>
+
+
+
+
 
 <script>
     import axios from 'axios';
     import Tree from './components/Tree';
 
+    const gradients = [
+    ['#222'],
+    ['#42b3f4'],
+    ['red', 'orange', 'yellow'],
+    ['purple', 'violet'],
+    ['#00c6ff', '#F0F', '#FF0'],
+    ['#f72047', '#ffd200', '#1feaea'],
+  ]
     export default {
         name: 'App',
         components: {
@@ -42,7 +39,18 @@
         data: () => ({
             search : '',
             trees: [],
-            items : []
+            items : [],
+            width: 2,
+          radius: 10,
+          padding: 8,
+          lineCap: 'round',
+          gradient: gradients[5],
+          value: [],
+          gradientDirection: 'top',
+          gradients,
+          fill: false,
+          type: 'trend',
+          autoLineWidth: false,
         }),
         created() {
             this.searchTree();
@@ -56,6 +64,10 @@
             
                 axios.get('http://localhost:8000/api/v1/locations')
                 .then((response) => {this.items = response.data
+                });
+
+                axios.get('http://localhost:8000/api/v1/height')
+                .then((response) => {this.value = response.data
                 });
             }
         }
