@@ -49,7 +49,7 @@ def create_tree(variety,height):
 
 
 def search_trees(localisation):
-    trees = Tree.select().where(Tree.localisation == localisation).limit(20).execute()
+    trees = Tree.select().where(Tree.localisation == localisation).limit(5).execute()
     return trees
 
 

@@ -1,5 +1,93 @@
 <template>
 
+                <v-flex xs10 >
+                    <v-select
+                            solo
+                            label="Search by location"
+                            :items="items"                
+                            prepend-inner-icon="mdi-magnify"
+                            v-model="search">
+                        >                                  
+                    </v-select>
+                </v-flex>
+                <v-flex xs2 class="ml-2 mt-1">
+                    <v-btn block large @click="searchTree">Search</v-btn>
+                </v-flex>
+            </v-layout> 
+            </v-toolbar-title>
+        </v-app-bar>
+
+        <v-card max-width="475" class="pt-12 ms-12">
+            <v-toolbar color="teal" dark>
+                <v-toolbar-title>Favorites</v-toolbar-title>
+            </v-toolbar>
+                <v-list>
+                    <v-list-item-group
+                        v-model="settings"
+                        multiple
+                        active-class=""
+                    >
+                        <v-list-item>
+                        <template v-slot:default="{ active }">
+                            <v-list-item-action>
+                            <v-checkbox v-model="active"></v-checkbox>
+                            </v-list-item-action>
+                            <v-list-item-content>
+                            <v-list-item-title>Notifications</v-list-item-title>
+                            </v-list-item-content>
+                        </template>
+                        </v-list-item>
+                    </v-list-item-group>
+                    </v-list>
+        </v-card>
+
+  <v-app>
+    <v-card width="400" class="mx-auto mt-5">
+      <v-card-title class="pb-0">
+        <h1>Login</h1>
+      </v-card-title>
+      <v-card-text>
+        <v-form>
+          <v-text-field 
+            label="Username" 
+            prepend-icon="mdi-account-circle"
+          />
+          <v-text-field 
+            :type="showPassword ? 'text' : 'password'" 
+            label="Password"
+            prepend-icon="mdi-lock"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showPassword = !showPassword"
+          />
+        </v-form>
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-card-actions>
+        <v-btn color="success">Register</v-btn>
+        <v-btn color="info">Login</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-app>
+
+        <v-content>
+            <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
+                <div class="text-center">
+                    <v-container>
+                    <v-row justify="center">
+                        <v-col cols="8">
+                        <v-container class="max-width">
+                            <v-pagination
+                            v-model="page"
+                            class="my-4"
+                            :length="5"
+                            ></v-pagination>
+                        </v-container>
+                        </v-col>
+                    </v-row>
+                    </v-container>
+                </div>
+        </v-content>
+    </v-app>
     <v-sparkline
     :value="value"
     :gradient="gradients"
@@ -39,6 +127,10 @@
         data: () => ({
             search : '',
             trees: [],
+            items : [],
+            page: 1,
+            selected : [],
+            showPassword: false
             items : [],
             width: 2,
           radius: 10,
