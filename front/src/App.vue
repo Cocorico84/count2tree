@@ -1,4 +1,12 @@
 <template>
+    <v-app>
+        <v-app-bar 
+            app
+            src="./assets/arbre.jpg" 
+            aspect-ratio="1.7"
+            >
+            <v-toolbar-title class="mx-5 my-auto">
+                <v-layout class="mx-5">
 
                 <v-flex xs10 >
                     <v-select
@@ -16,8 +24,12 @@
             </v-layout> 
             </v-toolbar-title>
         </v-app-bar>
+        <v-content>
+            <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
+        </v-content>
 
-        <v-card max-width="475" class="pt-12 ms-12">
+
+        <v-card max-width="475" class="pt-2 ms-2">
             <v-toolbar color="teal" dark>
                 <v-toolbar-title>Favorites</v-toolbar-title>
             </v-toolbar>
@@ -69,6 +81,20 @@
     </v-card>
   </v-app>
 
+    <v-sparkline
+    :value="value"
+    :gradient="gradients"
+    :smooth="radius || false"
+    :padding="padding"
+    :line-width="width"
+    :stroke-linecap="lineCap"
+    :gradient-direction="gradientDirection"
+    :fill="fill"
+    :type="type"
+    :auto-line-width="autoLineWidth"
+    auto-draw
+></v-sparkline>
+
         <v-content>
             <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
                 <div class="text-center">
@@ -87,20 +113,8 @@
                     </v-container>
                 </div>
         </v-content>
-    </v-app>
-    <v-sparkline
-    :value="value"
-    :gradient="gradients"
-    :smooth="radius || false"
-    :padding="padding"
-    :line-width="width"
-    :stroke-linecap="lineCap"
-    :gradient-direction="gradientDirection"
-    :fill="fill"
-    :type="type"
-    :auto-line-width="autoLineWidth"
-    auto-draw
-  ></v-sparkline>
+
+      </v-app>
 </template>
 
 
@@ -130,19 +144,18 @@
             items : [],
             page: 1,
             selected : [],
-            showPassword: false
-            items : [],
+            showPassword: false,
             width: 2,
-          radius: 10,
-          padding: 8,
-          lineCap: 'round',
-          gradient: gradients[5],
-          value: [],
-          gradientDirection: 'top',
-          gradients,
-          fill: false,
-          type: 'trend',
-          autoLineWidth: false,
+            radius: 10,
+            padding: 8,
+            lineCap: 'round',
+            gradient: gradients[5],
+            value: [],
+            gradientDirection: 'top',
+            gradients,
+            fill: false,
+            type: 'trend',
+            autoLineWidth: false,
         }),
         created() {
             this.searchTree();
