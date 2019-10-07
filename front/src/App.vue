@@ -44,6 +44,9 @@
             trees: [],
             items : []
         }),
+        created() {
+            this.searchTree();
+        },
         methods : {
             searchTree() {
                 let params = {query : this.search};
