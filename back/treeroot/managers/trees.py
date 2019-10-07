@@ -53,7 +53,7 @@ def search_trees(localisation):
 
 
 def get_locations():
-    query = Tree.select(Tree.localisation).distinct().execute()
+    query = Tree.select(Tree.localisation).distinct().order_by(Tree.localisation).execute()
     locations = []
     for element in query:
         locations.append(element.localisation)
