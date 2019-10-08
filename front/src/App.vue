@@ -27,13 +27,112 @@
         <v-content>
             <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
         </v-content>
-    </v-app>
+
+
+        <v-card max-width="475" class="pt-2 ms-2">
+            <v-toolbar color="teal" dark>
+                <v-toolbar-title>Favorites</v-toolbar-title>
+            </v-toolbar>
+                <v-list>
+                    <v-list-item-group
+                        v-model="settings"
+                        multiple
+                        active-class=""
+                    >
+                        <v-list-item>
+                        <template v-slot:default="{ active }">
+                            <v-list-item-action>
+                            <v-checkbox v-model="active"></v-checkbox>
+                            </v-list-item-action>
+                            <v-list-item-content>
+                            <v-list-item-title>Notifications</v-list-item-title>
+                            </v-list-item-content>
+                        </template>
+                        </v-list-item>
+                    </v-list-item-group>
+                    </v-list>
+        </v-card>
+
+  <v-app>
+    <v-card width="400" class="mx-auto mt-5">
+      <v-card-title class="pb-0">
+        <h1>Login</h1>
+      </v-card-title>
+      <v-card-text>
+        <v-form>
+          <v-text-field 
+            label="Username" 
+            prepend-icon="mdi-account-circle"
+          />
+          <v-text-field 
+            :type="showPassword ? 'text' : 'password'" 
+            label="Password"
+            prepend-icon="mdi-lock"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showPassword = !showPassword"
+          />
+        </v-form>
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-card-actions>
+        <v-btn color="success">Register</v-btn>
+        <v-btn color="info">Login</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-app>
+
+<v-sparkline
+    :value="value"
+    :gradient="gradients"
+    :smooth="radius || false"
+    :padding="padding"
+    :line-width="width"
+    :stroke-linecap="lineCap"
+    :gradient-direction="gradientDirection"
+    :fill="fill"
+    :type="type"
+    :auto-line-width="autoLineWidth"
+    auto-draw
+></v-sparkline>
+
+        <v-content>
+            <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
+                <div class="text-center">
+                    <v-container>
+                    <v-row justify="center">
+                        <v-col cols="8">
+                        <v-container class="max-width">
+                            <v-pagination
+                            v-model="page"
+                            class="my-4"
+                            :length="5"
+                            ></v-pagination>
+                        </v-container>
+                        </v-col>
+                    </v-row>
+                    </v-container>
+                </div>
+        </v-content>
+
+      </v-app>
 </template>
+
+
+
+
 
 <script>
     import axios from 'axios';
     import Tree from './components/Tree';
 
+    const gradients = [
+    ['#222'],
+    ['#42b3f4'],
+    ['red', 'orange', 'yellow'],
+    ['purple', 'violet'],
+    ['#00c6ff', '#F0F', '#FF0'],
+    ['#f72047', '#ffd200', '#1feaea'],
+  ]
     export default {
         name: 'App',
         components: {
@@ -42,7 +141,21 @@
         data: () => ({
             search : '',
             trees: [],
-            items : []
+            items : [],
+            page: 1,
+            selected : [],
+            showPassword: false,
+            width: 2,
+            radius: 10,
+            padding: 8,
+            lineCap: 'round',
+            gradient: gradients[5],
+            value: [],
+            gradientDirection: 'top',
+            gradients,
+            fill: false,
+            type: 'trend',
+            autoLineWidth: false,
         }),
         created() {
             this.searchTree();
@@ -56,6 +169,10 @@
             
                 axios.get('http://localhost:8000/api/v1/locations')
                 .then((response) => {this.items = response.data
+                });
+
+                axios.get('http://localhost:8000/api/v1/height')
+                .then((response) => {this.value = response.data
                 });
             }
         }

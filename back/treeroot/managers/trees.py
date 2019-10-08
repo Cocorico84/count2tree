@@ -1,7 +1,8 @@
 from treeroot.models.tree import Tree
 import requests
 import csv
-import pandas as pd
+
+
 
 
 def load_data():
@@ -48,7 +49,7 @@ def create_tree(variety,height):
 
 
 def search_trees(localisation):
-    trees = Tree.select().where(Tree.localisation == localisation).limit(20).execute()
+    trees = Tree.select().where(Tree.localisation == localisation).limit(5).execute()
     return trees
 
 
@@ -58,3 +59,10 @@ def get_locations():
     for element in query:
         locations.append(element.localisation)
     return locations
+
+def get_height():
+    query = Tree.select(Tree.height).distinct().where(Tree.height < 100).execute()
+    height = []
+    for element in query:
+        height.append(element.height)
+    return height

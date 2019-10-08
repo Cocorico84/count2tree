@@ -1,8 +1,8 @@
 <template>
     <v-container>
         <v-layout v-if="tree !== null">
-            <v-flex xs12>
-                <v-card class="mx-auto">
+            <v-flex xs6>
+                <v-card color="#C5E1A5"  class="mx-auto">
                     <v-card-title>{{ tree.genus }} {{ tree.specie }} {{ tree.variety }}</v-card-title>
                     <v-card-text>{{ tree.location }}</v-card-text>
                     <v-card-text>Hauteur : {{ tree.height }} m</v-card-text>
