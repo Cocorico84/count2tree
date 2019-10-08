@@ -1,4 +1,5 @@
 from treeroot.models.tree import Tree
+from treeroot.models.user import User
 import requests
 import csv
 
@@ -60,9 +61,21 @@ def get_locations():
         locations.append(element.localisation)
     return locations
 
+
 def get_height():
     query = Tree.select(Tree.height).distinct().where(Tree.height < 100).execute()
     height = []
     for element in query:
         height.append(element.height)
     return height
+
+
+def create_user(username,password):
+    data = {'username':username,'password':password}
+    user = User.get_or_none(data=data)
+
+    if user is None:
+        user = User.create(**data)
+    else:
+        user = User.update(**data).execute()
+    return user

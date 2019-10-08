@@ -59,7 +59,7 @@
         <h1>Login</h1>
       </v-card-title>
       <v-card-text>
-        <v-form>
+        <v-form ref="form">
           <v-text-field 
             label="Username" 
             prepend-icon="mdi-account-circle"
@@ -75,13 +75,14 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
-        <v-btn color="success">Register</v-btn>
-        <v-btn color="info">Login</v-btn>
+        <v-btn color="success" @click='register'>Register</v-btn>
+        <v-btn color="info" @click='login'>Login</v-btn>
       </v-card-actions>
     </v-card>
   </v-app>
 
 <v-sparkline
+    :labels="value"
     :value="value"
     :gradient="gradients"
     :smooth="radius || false"
@@ -145,6 +146,9 @@
             page: 1,
             selected : [],
             showPassword: false,
+            Username : '',
+            Password : '',
+            user : null,
             width: 2,
             radius: 10,
             padding: 8,
@@ -174,6 +178,16 @@
                 axios.get('http://localhost:8000/api/v1/height')
                 .then((response) => {this.value = response.data
                 });
+            },
+            register(){
+                axios.post('http://localhost:8000/api/v1/user')
+                .then((response) => {this.user = response.data
+                });
+                if (this.$refs.form.validate()) {
+                console.log('User validated !') }
+            },
+            login() {
+
             }
         }
     }
