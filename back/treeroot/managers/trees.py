@@ -49,12 +49,12 @@ def create_tree(variety,height):
 
 
 def search_trees(localisation):
-    trees = Tree.select().where(Tree.localisation == localisation).limit(20).execute()
+    trees = Tree.select().where(Tree.localisation == localisation).limit(5).execute()
     return trees
 
 
 def get_locations():
-    query = Tree.select(Tree.localisation).distinct().execute()
+    query = Tree.select(Tree.localisation).distinct().order_by(Tree.localisation).execute()
     locations = []
     for element in query:
         locations.append(element.localisation)
