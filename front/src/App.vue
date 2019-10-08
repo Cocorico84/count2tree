@@ -81,7 +81,7 @@
     </v-card>
   </v-app>
 
-    <v-sparkline
+<v-sparkline
     :value="value"
     :gradient="gradients"
     :smooth="radius || false"
