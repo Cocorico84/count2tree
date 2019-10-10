@@ -12,7 +12,6 @@
                     </v-toolbar>
                         <v-list>
                             <v-list-item-group
-                                v-model="settings"
                                 multiple
                                 active-class=""
                             >

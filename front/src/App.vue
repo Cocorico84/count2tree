@@ -33,6 +33,11 @@
 
     export default {
         name: 'App',
+        data: () => ({
+            search : '',
+            trees: [],
+            items : [],
+        }),
         components: {
             Tree,
             Login,
@@ -41,5 +46,17 @@
             Pagination,
             Sparkline
         },
+        methods : {
+            searchTree() {
+                let params = {query : this.search};
+                axios.get('http://localhost:8000/api/v1/trees',{params:params})
+                .then((response) => {this.trees = response.data
+                });
+            
+                axios.get('http://localhost:8000/api/v1/locations')
+                .then((response) => {this.items = response.data
+                });
+            }
+        }
     }
 </script>

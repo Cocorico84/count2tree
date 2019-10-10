@@ -1,7 +1,6 @@
 <template>
     <v-app-bar 
     app
-    src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg" 
     aspect-ratio="1.7"
     color="light-green"
     >
@@ -31,9 +30,6 @@
     import Tree from '/home/coco/PycharmProjects/Count2tree2/front/src/components/Tree';
 
 export default {
-        components: {
-            Tree,
-        },
         data: () => ({
             search : '',
             trees: [],
