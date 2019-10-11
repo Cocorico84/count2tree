@@ -1,10 +1,8 @@
 <template>
-    <v-app>
+    <v-app >
         <Search/>
-
         <v-content>
             <v-container>
-
                 <v-row>
                 <v-col cols="4">
                     <Favorite/>
@@ -13,12 +11,11 @@
                     <Login/>
                 </v-col>
                 <v-col cols="12">
-                    <Tree :tree="tree" v-for="tree in trees":key="tree.name"/>
-                    <!-- <Sparkline/> -->
+                    <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
+                    <Sparkline/>
                     <Pagination/>
                 </v-col>
                 </v-row>
-
             </v-container>
         </v-content>
     </v-app>
@@ -48,17 +45,5 @@
             Pagination,
             Sparkline
         },
-        methods : {
-            searchTree() {
-                let params = {query : this.search};
-                axios.get('http://localhost:8000/api/v1/trees',{params:params})
-                .then((response) => {this.trees = response.data
-                });
-            
-                axios.get('http://localhost:8000/api/v1/locations')
-                .then((response) => {this.items = response.data
-                });
-            }
-        }
     }
 </script>
