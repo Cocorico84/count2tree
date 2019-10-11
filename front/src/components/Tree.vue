@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-layout v-if="tree !== null">
+        <v-layout>
             <v-flex xs8>
                 <v-card color="#C5E1A5" class="mx-auto">
                     <v-app-bar color="#D7CCC8" dark>

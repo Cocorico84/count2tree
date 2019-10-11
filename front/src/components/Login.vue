@@ -31,8 +31,16 @@
 <script>
 export default {
     data: () => ({
-        showPassword: false
+        showPassword: false,
+        Username: null,
+        Password:null
         }),
-
+        methods : {
+          searchTree() {
+              axios.get('http://localhost:8000/api/v1/trees')
+              .then((response) => {this.trees = response.data
+              });
+          }
+        }
 }
 </script>

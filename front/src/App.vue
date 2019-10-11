@@ -6,14 +6,16 @@
             <v-container>
 
                 <v-row>
-                <v-col>
-
+                <v-col cols="4">
                     <Favorite/>
+                </v-col>
+                <v-col cols="8">
                     <Login/>
-                    <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
-                    <Sparkline/>
+                </v-col>
+                <v-col cols="12">
+                    <Tree :tree="tree" v-for="tree in trees"/>
+                    <!-- <Sparkline/> -->
                     <Pagination/>
-
                 </v-col>
                 </v-row>
 

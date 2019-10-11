@@ -1,8 +1,5 @@
 <template>
-    <v-container>
-        <v-layout>
-            <v-flex xs8>
-                <v-card max-width="475" class="pa-2">
+                <v-card class="pa-2">
                     <v-toolbar color="teal" dark>
                         <v-toolbar-title>Favorites</v-toolbar-title>
                     <div class="flex-grow-1"></div>
@@ -28,9 +25,6 @@
                             </v-list-item-group>
                             </v-list>
                 </v-card>
-            </v-flex>
-        </v-layout>
-    </v-container>
 </template>
 
 <script>
