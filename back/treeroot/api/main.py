@@ -1,7 +1,7 @@
 from flask import request
 from flask_restful import Resource
 
-from treeroot.managers.trees import search_trees , get_tree_by_genus, get_locations, get_height
+from treeroot.managers.trees import search_trees , get_tree_by_genus, get_locations, get_height, get_tree_height_by_locations
 
 
 class Trees(Resource):
@@ -25,5 +25,15 @@ class Location(Resource):
 
 class Height (Resource):
     def get(self):
+        location = request.args.get('query', None)
+        if location is not None:
+            height_by_locations = get_tree_height_by_locations(location)
+            return height_by_locations
+
         height = get_height()
         return height
+
+class Height_by_locations(Resource):
+    def get(self):
+        height_by_locations = get_tree_height_by_locations(Tree.localisation)
+        return height_by_locations

@@ -81,19 +81,27 @@
     </v-card>
   </v-app>
 
-<v-sparkline
-    :value="value"
-    :gradient="gradients"
-    :smooth="radius || false"
-    :padding="padding"
-    :line-width="width"
-    :stroke-linecap="lineCap"
-    :gradient-direction="gradientDirection"
-    :fill="fill"
-    :type="type"
-    :auto-line-width="autoLineWidth"
-    auto-draw
-></v-sparkline>
+<v-card-text>
+    <v-sheet color="rgba(0, 0, 0, .12)">
+    <v-sparkline
+        :value="value"
+        :gradient="gradients"
+        :smooth="radius || false"
+        :padding="padding"
+        :line-width="width"
+        :stroke-linecap="lineCap"
+        :gradient-direction="gradientDirection"
+        :fill="fill"
+        :type="type"
+        :auto-line-width="autoLineWidth"
+        :labels="value"
+    ></v-sparkline>
+ </v-sheet>
+
+    </v-card-text>
+<v-card-text>
+      <div class="display-1 font-weight-thin">Trees in Paris</div>
+    </v-card-text>
 
         <v-content>
             <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
@@ -171,7 +179,7 @@
                 .then((response) => {this.items = response.data
                 });
 
-                axios.get('http://localhost:8000/api/v1/height')
+                axios.get('http://localhost:8000/api/v1/height',{params: params})
                 .then((response) => {this.value = response.data
                 });
             }
