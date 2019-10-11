@@ -13,7 +13,7 @@
                     <Login/>
                 </v-col>
                 <v-col cols="12">
-                    <Tree :tree="tree" v-for="tree in trees"/>
+                    <Tree :tree="tree" v-for="tree in trees":key="tree.name"/>
                     <!-- <Sparkline/> -->
                     <Pagination/>
                 </v-col>
