@@ -3,7 +3,7 @@ from flask_restful import Api
 
 from treeroot.models.database import db
 
-from .main import Trees, Location, Height
+from .main import Trees, Location, Height, User
 
 api_bp = Blueprint('api', __name__)
 api = Api(api_bp)
@@ -21,5 +21,6 @@ def register_api(app):
     api.add_resource(Trees, '/trees')
     api.add_resource(Location, '/locations')
     api.add_resource(Height, '/height')
+    api.add_resource(User, '/user')
 
     app.register_blueprint(api_bp, url_prefix='/api/v1')
