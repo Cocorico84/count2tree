@@ -1,6 +1,7 @@
 <template>
     <v-app-bar 
     app
+    src="./assets/arbre.jpg" 
     aspect-ratio="1.7"
     color="light-green"
     >
