@@ -3,6 +3,11 @@
     app
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< 76ae67f800a48c4ce857c593f96d528a0c2e1568
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> (no branch): Auto stash before checking out "Favorite"
     src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg"
 =======
     src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg" 
@@ -10,6 +15,15 @@
 =======
     src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg" 
 >>>>>>> Stashed changes
+<<<<<<< 76ae67f800a48c4ce857c593f96d528a0c2e1568
+=======
+=======
+    src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg" 
+>>>>>>> Stashed changes
+=======
+    src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg" 
+>>>>>>> Stashed changes
+>>>>>>> (no branch): Auto stash before checking out "Favorite"
     aspect-ratio="1.7"
     color="light-green"
     >
@@ -41,6 +55,21 @@
 export default {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< 76ae67f800a48c4ce857c593f96d528a0c2e1568
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        components: {
+            Tree,
+        },
+>>>>>>> Stashed changes
+=======
+        components: {
+            Tree,
+        },
+>>>>>>> Stashed changes
+>>>>>>> (no branch): Auto stash before checking out "Favorite"
 =======
         components: {
             Tree,

@@ -33,6 +33,11 @@ export default {
     data: () => ({
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< 76ae67f800a48c4ce857c593f96d528a0c2e1568
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> (no branch): Auto stash before checking out "Favorite"
         showPassword: false,
         Username: null,
         Password:null
@@ -54,5 +59,18 @@ export default {
         }),
 
 >>>>>>> Stashed changes
+<<<<<<< 76ae67f800a48c4ce857c593f96d528a0c2e1568
+=======
+=======
+        showPassword: false
+        }),
+
+>>>>>>> Stashed changes
+=======
+        showPassword: false
+        }),
+
+>>>>>>> Stashed changes
+>>>>>>> (no branch): Auto stash before checking out "Favorite"
 }
 </script>
