@@ -1,7 +1,7 @@
 from flask import request
 from flask_restful import Resource
 
-from treeroot.managers.trees import search_trees , get_tree_by_genus, get_locations, get_height
+from treeroot.managers.trees import search_trees , get_tree_by_genus, get_locations, get_height, create_user
 
 
 class Trees(Resource):
@@ -23,7 +23,15 @@ class Location(Resource):
         locations = get_locations()
         return locations
 
-class Height (Resource):
+
+class Height(Resource):
     def get(self):
         height = get_height()
         return height
+
+
+class User(Resource):
+    def post(self):
+        data = request.json
+        user = create_user(data['username'],data['password'])
+        return user.get_data()
