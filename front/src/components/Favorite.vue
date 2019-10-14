@@ -1,5 +1,12 @@
 <template>
+<<<<<<< Updated upstream
                 <v-card class="pa-2">
+=======
+    <v-container>
+        <v-layout>
+            <v-flex xs8>
+                <v-card max-width="475" class="pa-2">
+>>>>>>> Stashed changes
                     <v-toolbar color="teal" dark>
                         <v-toolbar-title>Favorites</v-toolbar-title>
                     <div class="flex-grow-1"></div>
@@ -9,6 +16,10 @@
                     </v-toolbar>
                         <v-list>
                             <v-list-item-group
+<<<<<<< Updated upstream
+=======
+                                v-model="settings"
+>>>>>>> Stashed changes
                                 multiple
                                 active-class=""
                             >
@@ -25,6 +36,12 @@
                             </v-list-item-group>
                             </v-list>
                 </v-card>
+<<<<<<< Updated upstream
+=======
+            </v-flex>
+        </v-layout>
+    </v-container>
+>>>>>>> Stashed changes
 </template>
 
 <script>

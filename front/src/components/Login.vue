@@ -31,6 +31,7 @@
 <script>
 export default {
     data: () => ({
+<<<<<<< Updated upstream
         showPassword: false,
         Username: null,
         Password:null
@@ -42,5 +43,10 @@ export default {
               });
           }
         }
+=======
+        showPassword: false
+        }),
+
+>>>>>>> Stashed changes
 }
 </script>

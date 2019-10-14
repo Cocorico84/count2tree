@@ -1,7 +1,11 @@
 <template>
     <v-app-bar 
     app
+<<<<<<< Updated upstream
     src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg"
+=======
+    src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg" 
+>>>>>>> Stashed changes
     aspect-ratio="1.7"
     color="light-green"
     >
@@ -31,6 +35,12 @@
     import Tree from '/home/coco/PycharmProjects/Count2tree2/front/src/components/Tree';
 
 export default {
+<<<<<<< Updated upstream
+=======
+        components: {
+            Tree,
+        },
+>>>>>>> Stashed changes
         data: () => ({
             search : '',
             trees: [],
