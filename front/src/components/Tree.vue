@@ -1,12 +1,11 @@
 <template>
     <v-container>
-        <v-layout v-if="tree !== null">
-            <v-flex xs6>
-                <v-card color="#C5E1A5"  class="mx-auto" v-model="name">
-                    <v-card-title>{{ tree.genus }} {{ tree.specie }} {{ tree.variety }}</v-card-title>
-                    <v-card-text>{{ tree.location }}</v-card-text>
-                    <v-card-text>Hauteur : {{ tree.height }} m</v-card-text>
-                    <v-col class="text-right">
+        <v-layout>
+            <v-flex xs8>
+                <v-card color="#C5E1A5" class="mx-auto">
+                    <v-app-bar color="#D7CCC8" dark>
+                        <v-card-title>{{ tree.genus }} {{ tree.specie }} {{ tree.variety }}</v-card-title>
+                        <div class="flex-grow-1"></div>
                         <v-btn
                         text icon 
                         :color="color" 
@@ -14,7 +13,9 @@
                         >
                         <v-icon>mdi-heart</v-icon>
                         </v-btn>
-                    </v-col>
+                    </v-app-bar>
+                    <v-card-text>{{ tree.location }}</v-card-text>
+                    <v-card-text>Hauteur : {{ tree.height }} m</v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -38,4 +39,4 @@
             },            
         }
     };
-</script>/
+</script>
