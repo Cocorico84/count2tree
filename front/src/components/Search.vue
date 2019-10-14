@@ -2,7 +2,11 @@
     <v-app-bar 
     app
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg"
+=======
+    src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg" 
+>>>>>>> Stashed changes
 =======
     src="/home/coco/PycharmProjects/Count2tree2/front/src/assets/arbre.jpg" 
 >>>>>>> Stashed changes
@@ -36,6 +40,12 @@
 
 export default {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        components: {
+            Tree,
+        },
+>>>>>>> Stashed changes
 =======
         components: {
             Tree,

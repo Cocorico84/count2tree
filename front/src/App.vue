@@ -23,6 +23,22 @@
 
         <v-content>
             <v-container>
+<<<<<<< Updated upstream
+
+                <v-row>
+                <v-col>
+
+                    <Favorite/>
+                    <Login/>
+                    <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
+                    <Sparkline/>
+                    <Pagination/>
+
+                </v-col>
+                </v-row>
+
+>>>>>>> Stashed changes
+=======
 
                 <v-row>
                 <v-col>
@@ -54,11 +70,14 @@
     export default {
         name: 'App',
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         data: () => ({
             search : '',
             trees: [],
             items : [],
         }),
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         components: {
