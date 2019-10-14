@@ -60,11 +60,13 @@
       </v-card-title>
       <v-card-text>
         <v-form ref="form">
-          <v-text-field 
+          <v-text-field
+            v-model='username'
             label="Username" 
             prepend-icon="mdi-account-circle"
           />
           <v-text-field 
+            v-model="password"
             :type="showPassword ? 'text' : 'password'" 
             label="Password"
             prepend-icon="mdi-lock"
@@ -146,9 +148,9 @@
             page: 1,
             selected : [],
             showPassword: false,
-            Username : '',
-            Password : '',
-            user : null,
+            username: '',
+            password:'',
+            user : {},
             width: 2,
             radius: 10,
             padding: 8,
@@ -180,7 +182,11 @@
                 });
             },
             register(){
-                axios.post('http://localhost:8000/api/v1/user')
+                    let param = {
+                        username: this.username,
+                        password:this.password
+                    }
+                axios.post('http://localhost:8000/api/v1/user',param)
                 .then((response) => {this.user = response.data
                 });
                 if (this.$refs.form.validate()) {

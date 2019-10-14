@@ -71,7 +71,7 @@ def get_height():
 
 
 def create_user(username,password):
-    data = {'username':username,'password':password}
+    data = {'username' : username, 'password' : password}
     user = User.get_or_none(data=data)
 
     if user is None:
