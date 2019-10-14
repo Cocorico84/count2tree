@@ -12,6 +12,9 @@ class User(Model):
     def get_data(self):
         return {'username':self.username,'password':self.password}
 
+    def data(self):
+        return {'username':self.username,'password':self.password}
+
     class Meta:
         database = db
         schema = 'public'
