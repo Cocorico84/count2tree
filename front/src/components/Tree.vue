@@ -7,11 +7,11 @@
                     <v-card-text>{{ tree.location }}</v-card-text>
                     <v-card-text>Hauteur : {{ tree.height }} m</v-card-text>
                     <v-col class="text-right">
-                        <v-btn
+                        <v-btn v-model="fav"
                         text icon 
                         :color="color" 
                         @click="change_color"
-                        >
+                        >{{ fav }}
                         <v-icon>mdi-heart</v-icon>
                         </v-btn>
                     </v-col>
@@ -25,12 +25,13 @@
     export default {
         props: ['tree'],
         data: () => ({
-            color : 'grey'
+            color: 'grey',
+            fav: []
         }),
         methods: {
             change_color () {  
                 this.color = "pink"            
-            }
+            },            
         }
     };
 </script>/
