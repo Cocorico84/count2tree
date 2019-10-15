@@ -80,6 +80,7 @@ def create_user(username,password):
         user = User.update(**data).execute()
     return user
 
+
 def get_tree_height_by_locations(localisation):
     height = []
     trees = search_trees(localisation)
