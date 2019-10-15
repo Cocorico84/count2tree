@@ -5,7 +5,7 @@ The project is to locate trees in each city. We want to improve our application 
 The project is a collaboration with Alessandro Quattropani.
 
 Features in working progress :
-[x] Favorites
-[] Sparkline
-[] Login
-[] Tree list
+- [x] Favorites
+- [ ] Sparkline
+- [ ] Login
+- [ ] Tree list
