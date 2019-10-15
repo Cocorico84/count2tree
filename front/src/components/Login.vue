@@ -5,9 +5,13 @@
         <h1>Login</h1>
       </v-card-title>
       <v-card-text>
-        <v-form>
-          <v-text-field label="Username" prepend-icon="mdi-account-circle" />
+        <v-form ref='form'>
+          <v-text-field 
+          v-model="username"
+          label="Username" 
+          prepend-icon="mdi-account-circle" />
           <v-text-field
+            v-model="password"
             :type="showPassword ? 'text' : 'password'"
             label="Password"
             prepend-icon="mdi-lock"
@@ -18,8 +22,8 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
-        <v-btn color="success">Register</v-btn>
-        <v-btn color="info">Login</v-btn>
+        <v-btn color="success" @click="register">Register</v-btn>
+        <v-btn color="info" @click="login">Login</v-btn>
       </v-card-actions>
     </v-card>
   </v-app>
