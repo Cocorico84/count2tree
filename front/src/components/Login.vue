@@ -52,6 +52,7 @@ export default {
       if (this.$refs.form.validate()) {
         console.log("User validated !");
       }
+      this.$refs.form.reset()
     },
     login() {}
   }

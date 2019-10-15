@@ -48,7 +48,7 @@ export default {
       axios.get("http://localhost:8000/api/v1/locations").then(response => {
         this.items = response.data;
       });
-    }
+    this.$emit('search')}
   }
 };
 </script>

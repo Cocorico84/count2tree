@@ -28,8 +28,6 @@ export default {
   methods: {
     change_color() {
       this.color = "pink";
-
-      this.fav.push(this.name);
       console.log("Ajout d'un favori");
     }
   }
