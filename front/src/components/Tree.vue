@@ -10,9 +10,9 @@
                         <v-btn
                         text icon 
                         :color="color" 
-                        @click="change_color"
+                        @click.once="change_color"
                         >
-                        <v-icon>mdi-heart</v-icon>
+                        <v-icon >mdi-heart</v-icon>
                         </v-btn>
                     </v-col>
                 </v-card>
@@ -25,12 +25,17 @@
     export default {
         props: ['tree'],
         data: () => ({
-            color : 'grey'
+            color: 'grey',
+            fav: [],
+            name: ''
         }),
         methods: {
             change_color () {  
-                this.color = "pink"            
-            }
+                this.color = "pink"
+                
+                this.fav.push(this.name)
+                console.log("Ajout d'un favori")
+            },            
         }
     };
-</script>/
+</script>

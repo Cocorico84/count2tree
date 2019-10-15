@@ -3,6 +3,7 @@ from flask_restful import Api
 
 from treeroot.models.database import db
 
+from .main import Trees, Location, Height, Height_by_locations
 from .main import Trees, Location, Height, User
 
 api_bp = Blueprint('api', __name__)
