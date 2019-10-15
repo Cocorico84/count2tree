@@ -31,7 +31,8 @@ export default {
   data: () => ({
     search: "",
     trees: [],
-    items: []
+    items: [],
+    value: []
   }),
   created() {
     this.searchTree();
@@ -48,7 +49,13 @@ export default {
       axios.get("http://localhost:8000/api/v1/locations").then(response => {
         this.items = response.data;
       });
-    this.$emit('search')}
+
+      axios
+        .get("http://localhost:8000/api/v1/height", { params: params })
+        .then(response => {
+          this.value = response.data;
+        });
+    }
   }
 };
 </script>

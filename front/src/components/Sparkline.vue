@@ -43,21 +43,5 @@ export default {
     type: "trend",
     autoLineWidth: false
   }),
-  created() {
-    this.searchTree();
-  },
-  methods: {
-    searchTree() {
-      let params = {query : this.search};
-      
-      axios.get('http://localhost:8000/api/v1/trees',{params:params})
-      .then((response) => {this.trees = response.data
-      });
-    
-      axios.get("http://localhost:8000/api/v1/height",{params:params})
-      .then(response => {this.value = response.data;
-      });
-    }
-  }
 };
 </script>
