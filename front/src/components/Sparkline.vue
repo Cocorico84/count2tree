@@ -48,8 +48,14 @@ export default {
   },
   methods: {
     searchTree() {
-      axios.get("http://localhost:8000/api/v1/height").then(response => {
-        this.value = response.data;
+      let params = {query : this.search};
+      
+      axios.get('http://localhost:8000/api/v1/trees',{params:params})
+      .then((response) => {this.trees = response.data
+      });
+    
+      axios.get("http://localhost:8000/api/v1/height",{params:params})
+      .then(response => {this.value = response.data;
       });
     }
   }

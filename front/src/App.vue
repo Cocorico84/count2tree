@@ -54,7 +54,7 @@ export default {
           this.trees = response.data;
         });
 
-      axios.get("http://localhost:8000/api/v1/locations").then(response => {
+      axios.get("http://localhost:8000/api/v1/locations", { params: params }).then(response => {
         this.items = response.data;
       });
     }
