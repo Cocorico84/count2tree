@@ -50,7 +50,7 @@ def create_tree(variety,height):
 
 
 def search_trees(localisation):
-    trees = Tree.select().where(Tree.localisation == localisation).limit(5).execute()
+    trees = Tree.select().where(Tree.localisation == localisation).limit(10).execute()
     return trees
 
 
@@ -63,7 +63,7 @@ def get_locations():
 
 
 def get_height():
-    query = Tree.select(Tree.height).distinct().where(Tree.height < 100).execute()
+    query = Tree.select(Tree.height).distinct().where(Tree.height < 10).execute()
     height = []
     for element in query:
         height.append(element.height)

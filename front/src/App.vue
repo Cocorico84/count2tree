@@ -98,6 +98,11 @@
     auto-draw
 ></v-sparkline>
 
+    </v-card-text>
+<v-card-text>
+      <div class="display-1 font-weight-thin">Trees in Paris</div>
+    </v-card-text>
+
         <v-content>
             <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
                 <div class="text-center">
@@ -177,7 +182,7 @@
                 .then((response) => {this.items = response.data
                 });
 
-                axios.get('http://localhost:8000/api/v1/height')
+                axios.get('http://localhost:8000/api/v1/height',{params: params})
                 .then((response) => {this.value = response.data
                 });
             },

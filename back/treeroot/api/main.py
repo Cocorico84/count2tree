@@ -26,6 +26,11 @@ class Location(Resource):
 
 class Height(Resource):
     def get(self):
+        location = request.args.get('query', None)
+        if location is not None:
+            height_by_locations = get_tree_height_by_locations(location)
+            return height_by_locations
+
         height = get_height()
         return height
 
