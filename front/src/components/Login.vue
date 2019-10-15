@@ -43,5 +43,19 @@ export default {
           }
         },
         showPassword: false,
-        }
+          register() {
+              let param = {
+                username: this.username,
+                password:this.password
+                  }
+              axios.post('http://localhost:8000/api/v1/user',param)
+              .then((response) => {this.user = response.data
+              });
+              if (this.$refs.form.validate()) {
+              console.log('User validated !') }
+              },
+              login() {
+
+              }
+          }
 </script>

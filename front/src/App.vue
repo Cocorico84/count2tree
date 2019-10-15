@@ -18,7 +18,6 @@
                 </v-row>
             </v-container>
         </v-content>
-
       </v-app>
 </template>
 
@@ -26,14 +25,6 @@
     import axios from 'axios';
     import Tree from './components/Tree';
 
-    const gradients = [
-    ['#222'],
-    ['#42b3f4'],
-    ['red', 'orange', 'yellow'],
-    ['purple', 'violet'],
-    ['#00c6ff', '#F0F', '#FF0'],
-    ['#f72047', '#ffd200', '#1feaea'],
-  ]
     export default {
         name: 'App',
         data: () => ({
