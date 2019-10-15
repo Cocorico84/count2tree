@@ -1,5 +1,4 @@
 <template>
-<<<<<<< Updated upstream
     <v-app >
         <Search/>
         <v-content>
@@ -17,56 +16,6 @@
                     <Pagination/>
                 </v-col>
                 </v-row>
-=======
-    <v-app>
-        <Search/>
-
-        <v-content>
-            <v-container>
-<<<<<<< Updated upstream
-<<<<<<< 76ae67f800a48c4ce857c593f96d528a0c2e1568
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> (no branch): Auto stash before checking out "Favorite"
-
-                <v-row>
-                <v-col>
-
-                    <Favorite/>
-                    <Login/>
-                    <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
-                    <Sparkline/>
-                    <Pagination/>
-<<<<<<< Updated upstream
-
-                </v-col>
-                </v-row>
-
->>>>>>> Stashed changes
-=======
-
-                <v-row>
-                <v-col>
-
-                    <Favorite/>
-                    <Login/>
-                    <Tree :tree="tree" v-for="tree in trees" :key="tree.name"/>
-                    <Sparkline/>
-                    <Pagination/>
-
-                </v-col>
-                </v-row>
-
->>>>>>> Stashed changes
-=======
-
-                </v-col>
-                </v-row>
-
->>>>>>> Stashed changes
             </v-container>
         </v-content>
 
@@ -91,23 +40,6 @@
             search : '',
             trees: [],
             items : [],
-            page: 1,
-            selected : [],
-            showPassword: false,
-            username: '',
-            password:'',
-            user : {},
-            width: 2,
-            radius: 10,
-            padding: 8,
-            lineCap: 'round',
-            gradient: gradients[5],
-            value: [],
-            gradientDirection: 'top',
-            gradients,
-            fill: false,
-            type: 'trend',
-            autoLineWidth: false,
         }),
         components: {
             Tree,
