@@ -24,6 +24,11 @@
 <script>
     import axios from 'axios';
     import Tree from './components/Tree';
+    import Login from './components/Login';
+    import Favorite from './components/Favorite';
+    import Search from './components/Search';
+    import Pagination from './components/Pagination';
+    import Sparkline from './components/Sparkline';
 
     export default {
         name: 'App',

@@ -32,8 +32,8 @@
 export default {
     data: () => ({
         showPassword: false,
-        Username: null,
-        Password:null
+        username: null,
+        password: null
         }),
         methods : {
           searchTree() {
