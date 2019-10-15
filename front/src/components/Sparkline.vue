@@ -11,44 +11,44 @@
     :type="type"
     :auto-line-width="autoLineWidth"
     auto-draw
-    ></v-sparkline>
+  ></v-sparkline>
 </template>
 
 <script>
-    import axios from 'axios';
+import axios from "axios";
 
-    const gradients = [
-    ['#222'],
-    ['#42b3f4'],
-    ['red', 'orange', 'yellow'],
-    ['purple', 'violet'],
-    ['#00c6ff', '#F0F', '#FF0'],
-    ['#f72047', '#ffd200', '#1feaea'],
-  ]
-  
+const gradients = [
+  ["#222"],
+  ["#42b3f4"],
+  ["red", "orange", "yellow"],
+  ["purple", "violet"],
+  ["#00c6ff", "#F0F", "#FF0"],
+  ["#f72047", "#ffd200", "#1feaea"]
+];
+
 export default {
-    data : () => ({
-        width: 2,
-        radius: 10,
-        padding: 8,
-        lineCap: 'round',
-        gradient: gradients[5],
-        value: [],
-        gradientDirection: 'top',
-        gradients,
-        fill: false,
-        type: 'trend',
-        autoLineWidth: false
-    }),
-    created() {
+  data: () => ({
+    width: 2,
+    radius: 10,
+    padding: 8,
+    lineCap: "round",
+    gradient: gradients[5],
+    value: [],
+    gradientDirection: "top",
+    gradients,
+    fill: false,
+    type: "trend",
+    autoLineWidth: false
+  }),
+  created() {
     this.searchTree();
-    },
-    methods : {
-            searchTree() {
-                axios.get('http://localhost:8000/api/v1/height')
-                .then((response) => {this.value = response.data
-                });
-            }
-        }
-}
+  },
+  methods: {
+    searchTree() {
+      axios.get("http://localhost:8000/api/v1/height").then(response => {
+        this.value = response.data;
+      });
+    }
+  }
+};
 </script>
