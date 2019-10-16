@@ -1,6 +1,14 @@
 <template>
   <v-app>
-    <Search />
+    <v-app-bar
+      app
+      shrink-on-scroll
+      prominent
+      src="./assets/arbre.jpg"
+      fade-img-on-scroll
+    >
+      <Search @search="searchTree"/>
+    </v-app-bar>
     <v-content>
       <v-container>
         <v-row>
@@ -54,9 +62,12 @@ export default {
           this.trees = response.data;
         });
 
-      axios.get("http://localhost:8000/api/v1/locations", { params: params }).then(response => {
-        this.items = response.data;
-      });
+      axios
+        .get("http://localhost:8000/api/v1/locations", { params: params })
+        .then(response => {
+          this.items = response.data;
+        });
+        console.log("Miche-miche")
     }
   }
 };

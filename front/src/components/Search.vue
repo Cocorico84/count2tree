@@ -55,6 +55,10 @@ export default {
         .then(response => {
           this.value = response.data;
         });
+
+    this.$emit("search",this.search)
+    console.log("hello")
+    // debugger;
     }
   }
 };

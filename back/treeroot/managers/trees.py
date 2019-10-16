@@ -1,5 +1,6 @@
 from treeroot.models.tree import Tree
 from treeroot.models.user import User
+from treeroot.models.favorite import Favorite
 import requests
 import csv
 
@@ -87,3 +88,13 @@ def get_tree_height_by_locations(localisation):
     for tree in trees:
         height.append(tree.height)
     return height
+
+
+def add_favorite():
+    data = []
+    favorite = Favorite.get_or_none(data=data)
+    if favorite is None:
+        favorite = Favorite.create(**data)
+    else:
+        favorite = Favorite.update(**data).execute()
+    return favorite

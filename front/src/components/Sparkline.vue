@@ -11,15 +11,13 @@
       :fill="fill"
       :type="type"
       :auto-line-width="autoLineWidth"
-      auto-draw
+      :auto-draw="!!value.length"
       :labels="value"
     ></v-sparkline>
   </v-sheet>
 </template>
 
 <script>
-import axios from "axios";
-
 const gradients = [
   ["#222"],
   ["#42b3f4"],
