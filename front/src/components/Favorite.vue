@@ -11,7 +11,7 @@
             </v-btn>
           </v-toolbar>
           <v-list>
-            <v-list-item-group v-model="settings" multiple active-class>
+            <v-list-item-group multiple active-class>
               <v-list-item>
                 <template v-slot:default="{ active }">
                   <v-list-item-action>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data: () => ({
     selected: []

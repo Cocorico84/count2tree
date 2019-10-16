@@ -29,7 +29,12 @@ export default {
     change_color() {
       this.color = "pink";
 
-      this.fav.push(this.name);
+      let params = { query: this.change_color };
+      axios
+        .post("http://localhost:8000/api/v1/favorite", { params: params })
+        .then(response => {
+          this.selected = response.data;
+        });
       console.log("Ajout d'un favori");
     }
   }

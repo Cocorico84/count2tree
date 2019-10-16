@@ -1,22 +1,23 @@
 <template>
-  <v-sparkline
-    :value="value"
-    :gradient="gradients"
-    :smooth="radius || false"
-    :padding="padding"
-    :line-width="width"
-    :stroke-linecap="lineCap"
-    :gradient-direction="gradientDirection"
-    :fill="fill"
-    :type="type"
-    :auto-line-width="autoLineWidth"
-    auto-draw
-  ></v-sparkline>
+  <v-sheet>
+    <v-sparkline
+      :value="value"
+      :gradient="gradients"
+      :smooth="radius || false"
+      :padding="padding"
+      :line-width="width"
+      :stroke-linecap="lineCap"
+      :gradient-direction="gradientDirection"
+      :fill="fill"
+      :type="type"
+      :auto-line-width="autoLineWidth"
+      :auto-draw="!!value.length"
+      :labels="value"
+    ></v-sparkline>
+  </v-sheet>
 </template>
 
 <script>
-import axios from "axios";
-
 const gradients = [
   ["#222"],
   ["#42b3f4"],
@@ -40,15 +41,5 @@ export default {
     type: "trend",
     autoLineWidth: false
   }),
-  created() {
-    this.searchTree();
-  },
-  methods: {
-    searchTree() {
-      axios.get("http://localhost:8000/api/v1/height").then(response => {
-        this.value = response.data;
-      });
-    }
-  }
 };
 </script>
