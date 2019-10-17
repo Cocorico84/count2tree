@@ -1,7 +1,7 @@
 from flask import request
 from flask_restful import Resource
 
-from treeroot.managers.trees import search_trees , get_tree_by_genus, get_locations, get_height, create_user
+from treeroot.managers.trees import search_trees , get_tree_by_genus, get_locations, get_height, create_user , get_tree_height_by_locations, add_favorite
 
 
 class Trees(Resource):
@@ -40,3 +40,11 @@ class User(Resource):
         data = request.json
         user = create_user(data['username'],data['password'])
         return user.get_data()
+
+
+class Favorite(Resource):
+    def post(self):
+        data = request.json
+        print(data)
+        favorite = add_favorite(data['genus'],data['specie'],data['variety'])
+        return favorite.data()

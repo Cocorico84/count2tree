@@ -1,5 +1,6 @@
 from treeroot.models.tree import Tree
 from treeroot.models.user import User
+from treeroot.models.favorite import Favorite
 import requests
 import csv
 
@@ -79,3 +80,21 @@ def create_user(username,password):
     else:
         user = User.update(**data).execute()
     return user
+
+
+def get_tree_height_by_locations(localisation):
+    height = []
+    trees = search_trees(localisation)
+    for tree in trees:
+        height.append(tree.height)
+    return height
+
+
+def add_favorite():
+    data = []
+    favorite = Favorite.get_or_none(data=data)
+    if favorite is None:
+        favorite = Favorite.create(**data)
+    else:
+        favorite = Favorite.update(**data).execute()
+    return favorite
