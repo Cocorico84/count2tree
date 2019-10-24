@@ -21,7 +21,7 @@ class Tree(Model):
         return {'variety':self.variety,'height':self.height}
 
     def get_small_data(self):
-        return {'genus': self.genus, 'specie': self.specie, 'variety': self.variety,'height': self.height,'location':self.localisation}
+        return {'genus': self.genus, 'specie': self.specie, 'variety': self.variety,'height': self.height,'location':self.localisation,'id':self.id}
 
 with db:
     Tree.create_table(fail_silently=True)

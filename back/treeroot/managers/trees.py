@@ -81,6 +81,15 @@ def create_user(username,password):
         user = User.update(**data).execute()
     return user
 
+def get_user(username,password):
+    query = User.select().where(username=username,password=password)
+
+    if query is not None:
+        return query
+    else:
+        print("Your username or password doesn't exist !")
+    return query
+
 
 def get_tree_height_by_locations(localisation):
     height = []
@@ -90,8 +99,8 @@ def get_tree_height_by_locations(localisation):
     return height
 
 
-def add_favorite():
-    data = []
+def add_favorite(genus, specie, variety):
+    data = {'genus':genus,'specie':specie,'variety':variety}
     favorite = Favorite.get_or_none(data=data)
     if favorite is None:
         favorite = Favorite.create(**data)

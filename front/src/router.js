@@ -1,20 +1,40 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import vuetify from './plugins/vuetify'
+import VueRouter from 'vue-router'
 
 import Home from './views/Home.vue'
 
+Vue.use(VueRouter)
 
-Vue.router(Router)
 
-export default new Router({
+
+export default new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
         {
-            path:'/',
+            path: '/',
             name: 'home',
             component: Home
-        }
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: () => import('./views/About.vue')
+        },
+        {
+            path: '/team',
+            name: 'team',
+            component: () => import('./views/Team.vue')
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: () => import('./views/Contact.vue')
+        },
+        {
+            path: '/result',
+            name: 'result',
+            component: () => import('./views/Result.vue')
+        },
     ]
 })

@@ -1,32 +1,20 @@
 <template>
   <v-container>
-    <v-layout>
-      <v-flex xs8>
-        <v-card max-width="475" class="pa-2">
-          <v-toolbar color="teal" dark>
-            <v-toolbar-title>Favorites</v-toolbar-title>
-            <div class="flex-grow-1"></div>
-            <v-btn icon>
-              <v-icon>mdi-delete</v-icon>
-            </v-btn>
-          </v-toolbar>
-          <v-list>
-            <v-list-item-group multiple active-class>
-              <v-list-item>
-                <template v-slot:default="{ active }">
-                  <v-list-item-action>
-                    <v-checkbox v-model="active"></v-checkbox>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>Notifications</v-list-item-title>
-                  </v-list-item-content>
-                </template>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-        </v-card>
-      </v-flex>
-    </v-layout>
+    <v-card class="pa-2">
+      <v-toolbar color="teal" dark>
+        <v-toolbar-title>Favorites</v-toolbar-title>
+        <div class="flex-grow-1"></div>
+        <v-btn icon>
+          <v-icon>mdi-delete</v-icon>
+        </v-btn>
+      </v-toolbar>
+
+      <v-card-text>
+        <v-row v-for="n in selected" :key="n">
+          <v-checkbox :label="n"></v-checkbox>
+        </v-row>
+      </v-card-text>
+    </v-card>
   </v-container>
 </template>
 
@@ -35,8 +23,10 @@ import axios from "axios";
 
 export default {
   data: () => ({
-    selected: []
-  })
+    selected: ["A", "B", "C"]
+  }),
+  components: {},
+  methods: {}
 };
 </script>
 

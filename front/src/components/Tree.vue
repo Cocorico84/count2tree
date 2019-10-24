@@ -7,7 +7,7 @@
           <v-card-text>{{ tree.location }}</v-card-text>
           <v-card-text>Hauteur : {{ tree.height }} m</v-card-text>
           <v-col class="text-right">
-            <v-btn text icon :color="color" @click.once="change_color">
+            <v-btn text icon :color="color" @click="changeColor">
               <v-icon>mdi-heart</v-icon>
             </v-btn>
           </v-col>
@@ -18,25 +18,34 @@
 </template>
 
 <script>
+import axios from 'axios'; 
+
 export default {
   props: ["tree"],
   data: () => ({
     color: "grey",
-    fav: [],
-    name: ""
+    favorite: [],
+    name: "",
+    genus: "",
+    specie: "",
+    variety: "",
   }),
   methods: {
-    change_color() {
+    changeColor() {
       this.color = "pink";
 
-      let params = { query: this.change_color };
+      let params = {
+        genus: this.genus,
+        specie: this.specie,
+        variety: this.variety,
+      }
+
       axios
-        .post("http://localhost:8000/api/v1/favorite", { params: params })
-        .then(response => {
-          this.selected = response.data;
+        .post("http://localhost:8000/api/v1/favorite", params )
+        .then(response => { this.favorite = response.data;
         });
-      console.log("Ajout d'un favori");
-    }
+        this.$emit("favorite",this.favorite)
+    },
   }
 };
 </script>

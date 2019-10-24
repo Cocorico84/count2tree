@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 const gradients = [
   ["#222"],
   ["#42b3f4"],
@@ -39,7 +41,19 @@ export default {
     gradients,
     fill: false,
     type: "trend",
-    autoLineWidth: false
+    autoLineWidth: false,
+    search: ""
   }),
+  methods: {
+    showSparkline() {
+
+      axios
+        .get("http://localhost:8000/api/v1/height")
+        .then(response => {
+          this.value = response.data;
+        });
+      this.$emit("spark", this.search);
+    }
+  }
 };
 </script>

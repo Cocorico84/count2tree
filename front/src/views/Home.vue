@@ -1,9 +1,14 @@
 <template>
-  <div class="home">
-    <h1>Homepage</h1>
-  </div>
+  <Carousel />
 </template>
 
 <script>
-export default {};
+import Carousel from "../components/Carousel";
+
+export default {
+  name: "Home",
+  components: {
+    Carousel
+  }
+};
 </script>
