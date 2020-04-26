@@ -10,4 +10,4 @@ Features in working progress :
 - [ ] Login
 - [ ] Tree list
 
-![screenshot](./assets/readme.png)
+![screenshot](./front/assets/readme.png)
